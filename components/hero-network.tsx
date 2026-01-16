@@ -1,171 +1,99 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { Search, Zap, ArrowRight, User, Building2, Calendar } from "lucide-react"
+import { Search, ArrowRight, Calendar, MapPin, Ticket } from "lucide-react"
 
 export function HeroNetwork() {
-    const canvasRef = useRef<HTMLCanvasElement>(null)
-
-    useEffect(() => {
-        const canvas = canvasRef.current
-        if (!canvas) return
-        const ctx = canvas.getContext("2d")
-        if (!ctx) return
-
-        let w = (canvas.width = window.innerWidth)
-        let h = (canvas.height = window.innerHeight)
-
-        // Nodes for the network animation
-        const particles: { x: number; y: number; vx: number; vy: number }[] = []
-        const particleCount = 80
-
-        for (let i = 0; i < particleCount; i++) {
-            particles.push({
-                x: Math.random() * w,
-                y: Math.random() * h,
-                vx: (Math.random() - 0.5) * 0.3,
-                vy: (Math.random() - 0.5) * 0.3
-            })
-        }
-
-        function animate() {
-            if (!ctx || !canvas) return
-            ctx.clearRect(0, 0, w, h)
-
-            // Node Styles - Slate-400 works decently on both white and dark
-            ctx.fillStyle = "rgba(148, 163, 184, 0.5)"
-            ctx.strokeStyle = "rgba(148, 163, 184, 0.15)"
-
-            for (let i = 0; i < particleCount; i++) {
-                let p = particles[i]
-                p.x += p.vx
-                p.y += p.vy
-
-                if (p.x < 0 || p.x > w) p.vx *= -1
-                if (p.y < 0 || p.y > h) p.vy *= -1
-
-                ctx.beginPath()
-                ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2)
-                ctx.fill()
-
-                // Connect nearby particles
-                for (let j = i + 1; j < particleCount; j++) {
-                    let p2 = particles[j]
-                    let dx = p.x - p2.x
-                    let dy = p.y - p2.y
-                    let dist = Math.sqrt(dx * dx + dy * dy)
-
-                    if (dist < 120) {
-                        ctx.beginPath()
-                        ctx.moveTo(p.x, p.y)
-                        ctx.lineTo(p2.x, p2.y)
-                        ctx.stroke()
-                    }
-                }
-            }
-            requestAnimationFrame(animate)
-        }
-
-        animate()
-
-        const handleResize = () => {
-            w = canvas.width = window.innerWidth
-            h = canvas.height = window.innerHeight
-        }
-        window.addEventListener("resize", handleResize)
-        return () => window.removeEventListener("resize", handleResize)
-    }, [])
-
     return (
-        <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-zinc-50 dark:bg-[#0a0a0f] text-slate-900 dark:text-slate-100 pb-20 transition-colors duration-500">
-            {/* Network Animation Background */}
-            <canvas ref={canvasRef} className="absolute inset-0 z-0 opacity-40 dark:opacity-30" />
+        <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-amber-50/50 dark:bg-[#0a0a0f] text-slate-900 dark:text-slate-100 pb-20 transition-colors duration-500">
 
-            {/* Decorative Gradient Glows - Works on both */}
-            <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-500/10 dark:bg-blue-900/20 blur-[120px] rounded-full opacity-60 pointer-events-none"></div>
-            <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-purple-500/10 dark:bg-indigo-900/20 blur-[150px] rounded-full opacity-60 pointer-events-none"></div>
+            {/* Soft Ambient Background */}
+            <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-orange-200/20 dark:bg-purple-900/10 blur-[150px] rounded-full pointer-events-none"></div>
+            <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-200/20 dark:bg-indigo-900/10 blur-[150px] rounded-full pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center mt-10 md:mt-0">
 
-                {/* Featured Event Badge */}
-                <div className="inline-flex flex-col items-center gap-2 px-8 py-4 rounded-2xl border border-purple-200 dark:border-purple-800 bg-gradient-to-b from-purple-50/90 to-white/90 dark:from-purple-900/20 dark:to-slate-900/50 backdrop-blur-md mb-10 animate-fade-in-up shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1 transition-all cursor-default relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                    <div className="flex items-center gap-2 mb-1">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                        </span>
-                        <span className="text-xs font-bold text-purple-600 dark:text-purple-300 uppercase tracking-widest">Upcoming Highlight</span>
-                    </div>
-                    <div className="text-center">
-                        <span className="block text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-1">Purim Party by Elevate Shabbat</span>
-                        <div className="flex items-center justify-center gap-2 text-sm md:text-base text-slate-600 dark:text-slate-300">
-                            <Calendar className="w-4 h-4" />
-                            <span>March 8th • Secret Location, SF</span>
+                {/* Headline */}
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up text-slate-900 dark:text-white font-serif">
+                    Welcome Home, <br className="hidden md:block" />
+                    <span className="text-slate-700 dark:text-slate-300">San Francisco.</span>
+                </h1>
+
+                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-12 animate-fade-in-up delay-100 leading-relaxed">
+                    Connecting the Bay Area Jewish community. <br />
+                    Find synagogues, events, and your people.
+                </p>
+
+                {/* FEATURED EVENT CARD (Unmissable) */}
+                <div className="w-full max-w-3xl mb-16 animate-fade-in-up delay-200 transform hover:scale-[1.01] transition-transform duration-300">
+                    <div className="relative bg-white dark:bg-[#1a1b26] rounded-3xl p-1 shadow-2xl overflow-hidden border border-purple-100 dark:border-purple-900/30 ring-1 ring-purple-100 dark:ring-white/5">
+                        {/* Gradient Border/Glow */}
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-400 via-pink-500 to-red-400"></div>
+
+                        <div className="px-8 py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-8 bg-gradient-to-br from-white to-purple-50/30 dark:from-[#1a1b26] dark:to-[#13141f]">
+
+                            {/* Event Info */}
+                            <div className="text-left flex-1">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs font-bold tracking-wider mb-4 uppercase">
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-600"></span>
+                                    </span>
+                                    Upcoming Highlight
+                                </div>
+                                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2 leading-tight">
+                                    Purim Party
+                                    <span className="block text-lg md:text-xl font-medium text-slate-500 dark:text-slate-400 mt-1">by Elevate Shabbat</span>
+                                </h3>
+                                <div className="flex flex-col sm:flex-row gap-4 mt-6 text-slate-600 dark:text-slate-300 font-medium">
+                                    <div className="flex items-center gap-2">
+                                        <Calendar className="w-5 h-5 text-purple-500" />
+                                        March 8th
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <MapPin className="w-5 h-5 text-purple-500" />
+                                        Secret Location, SF
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Action Button */}
+                            <div className="flex-shrink-0">
+                                <button className="inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-2xl hover:bg-slate-800 dark:hover:bg-slate-100 transition-all shadow-lg hover:shadow-xl translate-y-0 group">
+                                    Get Tickets
+                                    <Ticket className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Headline */}
-                {/* Headline */}
-                <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-8 animate-fade-in-up delay-100 max-w-6xl leading-tight text-slate-900 dark:text-white">
-                    The Living Map of <br />
-                    <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-indigo-300 dark:to-purple-400 animate-gradient-x bg-[length:200%_auto]">
-                        Our Community
-                    </span>
-                </h1>
-
-                {/* Subheadline */}
-                <p className="text-lg md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mb-4 leading-relaxed animate-fade-in-up delay-200 font-light">
-                    Connecting families, young professionals, and organizations in the Bay Area.
-                </p>
-                <p className="text-sm md:text-base text-slate-500 dark:text-slate-500 max-w-2xl mb-12 animate-fade-in-up delay-200 font-medium">
-                    A central hub for synagogues, events, and community resources.
-                </p>
-
-                {/* Search Bar */}
-                <div className="w-full max-w-2xl mb-8 relative group animate-fade-in-up delay-300 z-20">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="relative flex items-center bg-white dark:bg-[#13141f] border border-slate-200 dark:border-slate-800/60 rounded-full p-2 shadow-xl hover:shadow-2xl hover:border-blue-300 dark:hover:border-slate-700 transition-all">
-                        <Search className="w-6 h-6 text-slate-400 dark:text-slate-500 ml-4" />
+                {/* Search Bar (Simplified) */}
+                <div className="w-full max-w-2xl mb-10 relative group animate-fade-in-up delay-300 z-20">
+                    <div className="relative flex items-center bg-white dark:bg-[#13141f] border border-slate-200 dark:border-slate-800 rounded-full p-2 shadow-sm hover:shadow-md transition-shadow">
+                        <Search className="w-5 h-5 text-slate-400 ml-4" />
                         <input
                             type="text"
-                            placeholder="Search synagogues, events, or people..."
-                            className="flex-1 bg-transparent border-none outline-none text-slate-900 dark:text-slate-200 px-4 py-3 placeholder:text-slate-400 dark:placeholder:text-slate-600 text-lg"
+                            placeholder="Search for synagogues, kosher food, or friends..."
+                            className="flex-1 bg-transparent border-none outline-none text-slate-900 dark:text-slate-200 px-4 py-3 placeholder:text-slate-400 text-base"
                         />
-                        <button className="bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-white text-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105">
+                        <button className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white px-6 py-2 rounded-full font-semibold transition-colors text-sm">
                             Search
                         </button>
                     </div>
                 </div>
 
-                {/* Filters / Tags */}
-                <div className="flex flex-wrap items-center justify-center gap-3 mb-16 animate-fade-in-up delay-400">
-                    {['Synagogues', 'Events', 'Kosher Food', 'Schools', 'Organizations'].map((filter) => (
-                        <button key={filter} className="px-5 py-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-all text-sm font-medium backdrop-blur-sm">
+                {/* Filters / Tags (Simplified) */}
+                <div className="flex flex-wrap items-center justify-center gap-2 mb-16 animate-fade-in-up delay-400">
+                    {['Synagogues', 'Kosher Food', 'Young Professionals', 'Families', 'Events'].map((filter) => (
+                        <button key={filter} className="px-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-all text-sm font-medium">
                             {filter}
                         </button>
                     ))}
                 </div>
 
-                {/* CTAs */}
-                <div className="flex flex-col items-center gap-4 animate-fade-in-up delay-500">
-                    <button
-                        onClick={() => document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="group flex items-center gap-2 text-slate-600 dark:text-slate-300 font-semibold hover:text-slate-900 dark:hover:text-white transition-colors"
-                    >
-                        Explore <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">
-                        Start discovering the community around you
-                    </p>
-                </div>
-            </div>
-
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
-                <div className="w-5 h-8 border-2 border-slate-700 rounded-full flex justify-center pt-2">
-                    <div className="w-1 h-2 bg-slate-500 rounded-full"></div>
+                {/* Scroll Indicator */}
+                <div className="animate-bounce opacity-40">
+                    <ArrowRight className="w-6 h-6 rotate-90 text-slate-500" />
                 </div>
             </div>
         </section>

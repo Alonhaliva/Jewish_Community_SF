@@ -36,26 +36,35 @@ export default function HomePage() {
       {/* 1. Hero Section (100vh) */}
       <HeroNetwork />
 
-      {/* 1.5 Decision Block (High Signal) */}
-      <div className="relative z-10 -mt-10 mb-24 container mx-auto px-6 animate-fade-in-up delay-700">
-        <div className="bg-white dark:bg-[#13141f] rounded-2xl border border-slate-200 dark:border-slate-800 p-8 shadow-2xl max-w-4xl mx-auto text-center transform hover:-translate-y-1 transition-transform duration-500">
-          <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight">What are you looking for?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <a href="/database?category=founder" className={`group flex items-center justify-center gap-2 px-6 py-4 rounded-xl border transition-all ${userRole === 'founder' ? 'border-blue-500 ring-1 ring-blue-500/50 bg-blue-50/50' : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50'} hover:border-blue-500 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/10`}>
-              <span className="font-bold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">Families</span>
-            </a>
-            <a href="/database?category=company" className="group flex items-center justify-center gap-2 px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-purple-500 dark:hover:border-purple-500 bg-slate-50 dark:bg-slate-900/50 hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-all">
-              <span className="font-bold text-slate-700 dark:text-slate-300 group-hover:text-purple-600 dark:group-hover:text-purple-400">Young Professionals</span>
-            </a>
-            <a href="/database?category=investor" className={`group flex items-center justify-center gap-2 px-6 py-4 rounded-xl border transition-all shadow-sm hover:shadow-md ${userRole === 'investor' ? 'border-amber-400 ring-1 ring-amber-400/50 bg-amber-50' : 'border-amber-200 dark:border-amber-800/60 bg-amber-50/50 dark:bg-amber-900/10'} hover:border-amber-500 dark:hover:border-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/20`}>
-              <span className="font-bold text-amber-900 dark:text-amber-100 group-hover:text-amber-700 dark:group-hover:text-amber-300 flex items-center gap-2">
-                Organizations <Lock className="w-4 h-4 text-amber-600 dark:text-amber-400 opacity-100" />
-              </span>
-            </a>
-          </div>
-          <p className="mt-6 text-xs text-slate-400 dark:text-slate-500 max-w-lg mx-auto">
-            Explore the various groups and communities available.
-          </p>
+      {/* 2. Simple Categories (Replaces Decision Block) */}
+      <div className="container mx-auto px-6 -mt-10 relative z-20 mb-24">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1 */}
+          <a href="/database?category=founder" className="bg-white dark:bg-[#13141f] p-6 rounded-2xl shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 text-center group">
+            <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
+              <span className="text-2xl">👨‍👩‍👧‍👦</span>
+            </div>
+            <h3 className="font-bold text-slate-800 dark:text-slate-200 mb-2">Families</h3>
+            <p className="text-sm text-slate-500 dark:text-slate-500">Find schools, parks, and family-friendly events.</p>
+          </a>
+
+          {/* Card 2 */}
+          <a href="/database?category=company" className="bg-white dark:bg-[#13141f] p-6 rounded-2xl shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 text-center group">
+            <div className="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-100 transition-colors">
+              <span className="text-2xl">🥂</span>
+            </div>
+            <h3 className="font-bold text-slate-800 dark:text-slate-200 mb-2">Young Pros</h3>
+            <p className="text-sm text-slate-500 dark:text-slate-500">Networking, happy hours, and social gatherings.</p>
+          </a>
+
+          {/* Card 3 */}
+          <a href="/database?category=investor" className="bg-white dark:bg-[#13141f] p-6 rounded-2xl shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 text-center group">
+            <div className="w-12 h-12 bg-amber-50 dark:bg-amber-900/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-100 transition-colors">
+              <span className="text-2xl">🕍</span>
+            </div>
+            <h3 className="font-bold text-slate-800 dark:text-slate-200 mb-2">Community</h3>
+            <p className="text-sm text-slate-500 dark:text-slate-500">Synagogues, JCCs, and support organizations.</p>
+          </a>
         </div>
       </div>
 
@@ -98,81 +107,31 @@ export default function HomePage() {
       </div>
 
       {/* 6. Mission / Story (Why This Exists) */}
-      <section className="py-32 relative overflow-hidden bg-zinc-50 dark:bg-[#0a0a0f]">
-        <div className="absolute inset-0 bg-indigo-50 dark:bg-indigo-900/10 rotate-3 scale-110 blur-3xl rounded-full opacity-40 dark:opacity-20 pointer-events-none"></div>
-        <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
-          <h2 className="text-sm font-bold text-indigo-600 dark:text-indigo-500 uppercase tracking-widest mb-8">Our Mission</h2>
-          <p className="text-3xl md:text-5xl font-serif font-medium leading-tight mb-8 text-slate-900 dark:text-slate-200">
-            A strong community is built on <span className="text-slate-900 dark:text-white font-bold">connections</span>.
-          </p>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-12">
-            We are dedicated to bringing together the Jewish community in the Bay Area through events, resources, and shared values.
+      <section className="py-24 relative bg-zinc-50 dark:bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
+          <h2 className="text-3xl md:text-5xl font-serif mb-6 text-slate-900 dark:text-slate-100">
+            Stronger Together.
+          </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-12">
+            We are dedicated to bringing together the Jewish community in the Bay Area. <br />
+            Whether you're looking for a Shabbat dinner, a playdate for your kids, or just a friendly face, you'll find it here.
           </p>
 
-          <a href="/about" className="inline-flex items-center gap-2 text-lg font-bold border-b border-slate-300 dark:border-slate-700 hover:border-indigo-600 dark:hover:border-indigo-500 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors pb-1">
-            Read the Manifesto <ArrowUpRight className="w-5 h-5" />
+          <a href="/about" className="inline-block px-8 py-3 bg-white border border-slate-200 rounded-full font-medium text-slate-900 hover:bg-slate-50 transition-colors shadow-sm">
+            About Us
           </a>
-        </div>
-
-        {/* Trust & Quality / How It Works - Subtle Grid */}
-        <div className="container mx-auto px-6 max-w-6xl mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 text-left relative z-10">
-          {/* How It Works */}
-          <div className="bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm rounded-xl p-8 border border-slate-200 dark:border-slate-800/50">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 tracking-tight">How it works</h3>
-            <div className="space-y-4">
-              <div className="flex gap-4">
-                <span className="text-sm font-mono text-slate-400 dark:text-slate-600">01</span>
-                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">Find your community</p>
-              </div>
-              <div className="flex gap-4">
-                <span className="text-sm font-mono text-slate-400 dark:text-slate-600">02</span>
-                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">Connect with others</p>
-              </div>
-              <div className="flex gap-4">
-                <span className="text-sm font-mono text-slate-400 dark:text-slate-600">03</span>
-                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">Attend local events</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Trust & Quality */}
-          <div className="bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm rounded-xl p-8 border border-slate-200 dark:border-slate-800/50">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Trust & Quality</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
-                <span className="text-sm text-slate-600 dark:text-slate-400">Verified community members</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
-                <span className="text-sm text-slate-600 dark:text-slate-400">Trusted organizations</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
-                <span className="text-sm text-slate-600 dark:text-slate-400">Safe and inclusive environment</span>
-              </li>
-            </ul>
-            <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-500 italic">
-              Supported by local leaders and community members.
-            </div>
-          </div>
         </div>
       </section>
 
       {/* 7. Community CTA (Emotional Anchor) */}
-      <section className="py-40 relative border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-[#050508]">
+      <section className="py-24 relative border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-[#050508]">
         <div className="container mx-auto px-6 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm mb-8">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">500+ Active Members</span>
-          </div>
 
-          <h2 className="text-5xl md:text-8xl font-bold text-slate-900 dark:text-white mb-8 tracking-tighter">
-            Join a network built on<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-br from-slate-900 to-slate-600 dark:from-white dark:to-slate-600">real connections.</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-8 font-serif">
+            Join the Community
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            For everyone who wants to be part of a thriving Jewish community.
+            Be part of a thriving Jewish community in San Francisco.
           </p>
 
 
