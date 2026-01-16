@@ -87,10 +87,23 @@ export function HeroNetwork() {
 
             <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center mt-10 md:mt-0">
 
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm mb-8 animate-fade-in-up shadow-sm">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    <span className="text-sm font-medium text-slate-600 dark:text-slate-300 tracking-wide">BAY AREA JEWISH COMMUNITY • 2026</span>
+                {/* Featured Event Badge */}
+                <div className="inline-flex flex-col items-center gap-2 px-8 py-4 rounded-2xl border border-purple-200 dark:border-purple-800 bg-gradient-to-b from-purple-50/90 to-white/90 dark:from-purple-900/20 dark:to-slate-900/50 backdrop-blur-md mb-10 animate-fade-in-up shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1 transition-all cursor-default relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                    <div className="flex items-center gap-2 mb-1">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                        </span>
+                        <span className="text-xs font-bold text-purple-600 dark:text-purple-300 uppercase tracking-widest">Upcoming Highlight</span>
+                    </div>
+                    <div className="text-center">
+                        <span className="block text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-1">Purim Party by Elevate Shabbat</span>
+                        <div className="flex items-center justify-center gap-2 text-sm md:text-base text-slate-600 dark:text-slate-300">
+                            <Calendar className="w-4 h-4" />
+                            <span>March 8th • Secret Location, SF</span>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Headline */}
