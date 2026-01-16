@@ -9,13 +9,13 @@ import Image from "next/image"
 import { ModeToggle } from "@/components/mode-toggle"
 
 const navItems = [
-  { href: "/database", label: "Database", icon: Database },
-  { href: "/jobs", label: "Jobs", icon: Briefcase },
+  { href: "/database", label: "Directory", icon: Database },
+  { href: "/jobs", label: "Opportunities", icon: Briefcase },
   { href: "/groups", label: "Groups", icon: Users },
   { href: "/events", label: "Events", icon: Calendar },
   { href: "/podcasts", label: "Podcasts", icon: Radio },
   { href: "/whats-new", label: "What's New", icon: TrendingUp },
-  { href: "/add-company", label: "Add Company", icon: Plus },
+  { href: "/add-company", label: "Add Listing", icon: Plus },
   { href: "/about", label: "About", icon: Info },
   { href: "/blog", label: "Blog", icon: BookOpen },
 ]
@@ -29,10 +29,10 @@ export function SideNav() {
         <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
           <div className="relative h-20 w-20">
             <Image
-              src="/images/isv-network-logo.png"
-              alt="ISV Logo"
+              src="/images/jewish-community-logo.png"
+              alt="Jewish Community Logo"
               fill
-              className="object-contain animate-[spin_10s_linear_infinite]"
+              className="object-contain"
               priority
             />
           </div>

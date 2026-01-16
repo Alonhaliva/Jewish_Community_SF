@@ -90,7 +90,7 @@ export function HeroNetwork() {
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm mb-8 animate-fade-in-up shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    <span className="text-sm font-medium text-slate-600 dark:text-slate-300 tracking-wide">ISRAELI TECH ECOSYSTEM • 2025</span>
+                    <span className="text-sm font-medium text-slate-600 dark:text-slate-300 tracking-wide">BAY AREA JEWISH COMMUNITY • 2026</span>
                 </div>
 
                 {/* Headline */}
@@ -98,16 +98,16 @@ export function HeroNetwork() {
                 <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-8 animate-fade-in-up delay-100 max-w-6xl leading-tight text-slate-900 dark:text-white">
                     The Living Map of <br />
                     <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-indigo-300 dark:to-purple-400 animate-gradient-x bg-[length:200%_auto]">
-                        Innovation
+                        Our Community
                     </span>
                 </h1>
 
                 {/* Subheadline */}
                 <p className="text-lg md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mb-4 leading-relaxed animate-fade-in-up delay-200 font-light">
-                    Connecting founders, operators, and investors between Silicon Valley and Israel.
+                    Connecting families, young professionals, and organizations in the Bay Area.
                 </p>
                 <p className="text-sm md:text-base text-slate-500 dark:text-slate-500 max-w-2xl mb-12 animate-fade-in-up delay-200 font-medium">
-                    Curated access to founders, investors, and operators — built on trust and active involvement
+                    A central hub for synagogues, events, and community resources.
                 </p>
 
                 {/* Search Bar */}
@@ -117,7 +117,7 @@ export function HeroNetwork() {
                         <Search className="w-6 h-6 text-slate-400 dark:text-slate-500 ml-4" />
                         <input
                             type="text"
-                            placeholder="Search companies, VCs, or people..."
+                            placeholder="Search synagogues, events, or people..."
                             className="flex-1 bg-transparent border-none outline-none text-slate-900 dark:text-slate-200 px-4 py-3 placeholder:text-slate-400 dark:placeholder:text-slate-600 text-lg"
                         />
                         <button className="bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-white text-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105">
@@ -128,7 +128,7 @@ export function HeroNetwork() {
 
                 {/* Filters / Tags */}
                 <div className="flex flex-wrap items-center justify-center gap-3 mb-16 animate-fade-in-up delay-400">
-                    {['Startups', 'Investors', 'Cybersecurity', 'AI', 'Fintech'].map((filter) => (
+                    {['Synagogues', 'Events', 'Kosher Food', 'Schools', 'Organizations'].map((filter) => (
                         <button key={filter} className="px-5 py-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-all text-sm font-medium backdrop-blur-sm">
                             {filter}
                         </button>
@@ -144,7 +144,7 @@ export function HeroNetwork() {
                         Explore <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                     <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">
-                        Start discovering people and companies worth knowing
+                        Start discovering the community around you
                     </p>
                 </div>
             </div>

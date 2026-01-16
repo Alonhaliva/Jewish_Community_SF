@@ -39,22 +39,22 @@ export default function HomePage() {
       {/* 1.5 Decision Block (High Signal) */}
       <div className="relative z-10 -mt-10 mb-24 container mx-auto px-6 animate-fade-in-up delay-700">
         <div className="bg-white dark:bg-[#13141f] rounded-2xl border border-slate-200 dark:border-slate-800 p-8 shadow-2xl max-w-4xl mx-auto text-center transform hover:-translate-y-1 transition-transform duration-500">
-          <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight">Who are you here to connect with?</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight">What are you looking for?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <a href="/database?category=founder" className={`group flex items-center justify-center gap-2 px-6 py-4 rounded-xl border transition-all ${userRole === 'founder' ? 'border-blue-500 ring-1 ring-blue-500/50 bg-blue-50/50' : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50'} hover:border-blue-500 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/10`}>
-              <span className="font-bold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">Founders & Operators</span>
+              <span className="font-bold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">Families</span>
             </a>
             <a href="/database?category=company" className="group flex items-center justify-center gap-2 px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-purple-500 dark:hover:border-purple-500 bg-slate-50 dark:bg-slate-900/50 hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-all">
-              <span className="font-bold text-slate-700 dark:text-slate-300 group-hover:text-purple-600 dark:group-hover:text-purple-400">Startups & Companies</span>
+              <span className="font-bold text-slate-700 dark:text-slate-300 group-hover:text-purple-600 dark:group-hover:text-purple-400">Young Professionals</span>
             </a>
             <a href="/database?category=investor" className={`group flex items-center justify-center gap-2 px-6 py-4 rounded-xl border transition-all shadow-sm hover:shadow-md ${userRole === 'investor' ? 'border-amber-400 ring-1 ring-amber-400/50 bg-amber-50' : 'border-amber-200 dark:border-amber-800/60 bg-amber-50/50 dark:bg-amber-900/10'} hover:border-amber-500 dark:hover:border-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/20`}>
               <span className="font-bold text-amber-900 dark:text-amber-100 group-hover:text-amber-700 dark:group-hover:text-amber-300 flex items-center gap-2">
-                Investors & Funds <Lock className="w-4 h-4 text-amber-600 dark:text-amber-400 opacity-100" />
+                Organizations <Lock className="w-4 h-4 text-amber-600 dark:text-amber-400 opacity-100" />
               </span>
             </a>
           </div>
           <p className="mt-6 text-xs text-slate-400 dark:text-slate-500 max-w-lg mx-auto">
-            Founders are asked to share their pitch deck and basic round details as part of the review process.
+            Explore the various groups and communities available.
           </p>
         </div>
       </div>
@@ -63,14 +63,14 @@ export default function HomePage() {
       <div className="relative z-10 pt-24 pb-24 flex flex-col items-center bg-zinc-50 dark:bg-[#0a0a0f]">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 mb-6 shadow-sm">
           <Globe className="w-3 h-3 text-indigo-600 dark:text-indigo-400" />
-          <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-300 tracking-wider">ECOSYSTEM MAP</span>
+          <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-300 tracking-wider">COMMUNITY MAP</span>
         </div>
         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 text-center tracking-tight">
-          Explore the Landscape
+          Explore the Community
         </h2>
         <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl text-center px-6 leading-relaxed">
-          Navigate the physical footprint of Israeli innovation in the Bay Area.
-          <span className="block mt-2 text-slate-500 text-base">Zoom in to see offices, innovation centers, and hubs.</span>
+          Navigate the vibrant Jewish community in the Bay Area.
+          <span className="block mt-2 text-slate-500 text-base">Zoom in to see synagogues, JCCs, and schools.</span>
         </p>
       </div>
 
@@ -103,11 +103,10 @@ export default function HomePage() {
         <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
           <h2 className="text-sm font-bold text-indigo-600 dark:text-indigo-500 uppercase tracking-widest mb-8">Our Mission</h2>
           <p className="text-3xl md:text-5xl font-serif font-medium leading-tight mb-8 text-slate-900 dark:text-slate-200">
-            Silicon Valley is built on <span className="text-slate-900 dark:text-white font-bold">networks</span>, not just code.
+            A strong community is built on <span className="text-slate-900 dark:text-white font-bold">connections</span>.
           </p>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-12">
-            We bring nearly a decade of experience across technology, startups, politics, foreign relations, and high-trust personal networks.
-            This platform is built on relationships, not cold outreach.
+            We are dedicated to bringing together the Jewish community in the Bay Area through events, resources, and shared values.
           </p>
 
           <a href="/about" className="inline-flex items-center gap-2 text-lg font-bold border-b border-slate-300 dark:border-slate-700 hover:border-indigo-600 dark:hover:border-indigo-500 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors pb-1">
@@ -123,15 +122,15 @@ export default function HomePage() {
             <div className="space-y-4">
               <div className="flex gap-4">
                 <span className="text-sm font-mono text-slate-400 dark:text-slate-600">01</span>
-                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">Apply with your deck</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">Find your community</p>
               </div>
               <div className="flex gap-4">
                 <span className="text-sm font-mono text-slate-400 dark:text-slate-600">02</span>
-                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">We review positioning, round structure, and fit</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">Connect with others</p>
               </div>
               <div className="flex gap-4">
                 <span className="text-sm font-mono text-slate-400 dark:text-slate-600">03</span>
-                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">Introductions are made only when there is real alignment</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">Attend local events</p>
               </div>
             </div>
           </div>
@@ -142,19 +141,19 @@ export default function HomePage() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
-                <span className="text-sm text-slate-600 dark:text-slate-400">Manual review and background checks</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Verified community members</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
-                <span className="text-sm text-slate-600 dark:text-slate-400">Referral-based access preferences</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Trusted organizations</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></span>
-                <span className="text-sm text-slate-600 dark:text-slate-400">No cold outreach or mass introductions</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Safe and inclusive environment</span>
               </li>
             </ul>
             <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-500 italic">
-              The network is supported by experienced founders, operators, and investors who contribute to deal preparation and diligence.
+              Supported by local leaders and community members.
             </div>
           </div>
         </div>
@@ -173,7 +172,7 @@ export default function HomePage() {
             <span className="text-transparent bg-clip-text bg-gradient-to-br from-slate-900 to-slate-600 dark:from-white dark:to-slate-600">real connections.</span>
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            For founders, operators, and investors who value trust and long-term relationships.
+            For everyone who wants to be part of a thriving Jewish community.
           </p>
 
 
@@ -193,7 +192,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-xs text-slate-400 dark:text-slate-500 mt-6 max-w-lg mx-auto">
-            Founders are asked to share their pitch deck and basic round details as part of the review process.
+            Join the community today.
           </p>
         </div>
       </section>
@@ -202,18 +201,18 @@ export default function HomePage() {
       <footer className="py-12 border-t border-slate-200 dark:border-slate-900 bg-zinc-50 dark:bg-[#0a0a0f] text-slate-500 text-sm">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col items-center md:items-start opacity-80">
-            <span className="text-slate-900 dark:text-slate-200 font-bold text-lg mb-1 tracking-tight">ISV Map</span>
-            <p>Curated connections bridging Israel and Silicon Valley.</p>
+            <span className="text-slate-900 dark:text-slate-200 font-bold text-lg mb-1 tracking-tight">Jewish Community SF</span>
+            <p>Connecting the Jewish community in the Bay Area.</p>
           </div>
 
           <div className="flex gap-8 opacity-80">
-            <a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Twitter</a>
-            <a href="mailto:iltechsv@gmail.com" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a>
+            <a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Facebook</a>
+            <a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Instagram</a>
+            <a href="mailto:contact@jewishsf.com" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a>
           </div>
 
           <div className="text-right opacity-60">
-            <p>© 2025 Israeli Silicon Valley</p>
+            <p>© 2025 Jewish Community SF</p>
             <div className="flex items-center gap-2 mt-2 justify-end">
               <span className="w-1.5 h-1.5 bg-green-50 rounded-full"></span>
               <span>All Systems Operational</span>
